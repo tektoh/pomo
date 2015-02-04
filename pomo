@@ -6,7 +6,7 @@ usage: pomo [command]
 - command
   - start
   - stop
-  - cloud
+  - 245cloud
 
 EOT
 exit 1
@@ -22,9 +22,9 @@ function stop() {
 
 function pomo() {
   if [ $2 = pomo ]; then
-    c=5 # 24min
+    c=1440 # 24min
   else
-    c=5 # 5min
+    c=300 # 5min
   fi
 
   while `sleep 1`; do
@@ -50,13 +50,13 @@ function start() {
   echo "$!" > /tmp/pomo.pid
 }
 
-function cloud() {
+function 245cloud() {
   open http://245cloud.com/
 }
 
 case ${1:-start} in
   start) start ;;
   stop) stop ;;
-  245cloud) cloud ;;
+  245cloud) 245cloud ;;
   *) usage ;;
 esac
