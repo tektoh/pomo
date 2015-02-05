@@ -57,6 +57,6 @@ function 245cloud() {
 case ${1:-start} in
   start) start ;;
   stop) stop ;;
-  245cloud) 245cloud ;;
+  245cloud|245|cloud) 245cloud ;;
   *) usage ;;
 esac
