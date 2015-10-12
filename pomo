@@ -6,7 +6,10 @@ usage:  pomo [command]
 - command
   - start
   - stop
-  - 245cloud
+  - 245cloud [option]
+
+- option:
+  - {youtube|soundcloud|mixcloud|nicovideo}:{videoid}
 
 install:
   chmod +x pomo && cp -v pomo /usr/local/bin
@@ -53,13 +56,14 @@ function start() {
   echo "$!" > /tmp/pomo.pid
 }
 
-function 245cloud() {
-  open http://245cloud.com/
+function cloud() {
+  VIDEO_ID=${1:-"soundcloud:25382260"}
+  open "http://245cloud.com/?auto_start=1&auto_close=1#${VIDEO_ID}"
 }
 
 case ${1:-start} in
   start) start ;;
   stop) stop ;;
-  245cloud|245|cloud) 245cloud ;;
+  245cloud|245|cloud) cloud $2 ;;
   *) usage ;;
 esac
