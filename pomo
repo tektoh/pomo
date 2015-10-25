@@ -59,6 +59,7 @@ function start() {
 function cloud() {
   VIDEO_ID=${1:-"soundcloud:25382260"}
   open "http://245cloud.com/?auto_start=1&auto_close=1#${VIDEO_ID}"
+  start
 }
 
 case ${1:-start} in
